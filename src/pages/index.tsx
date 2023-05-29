@@ -5,6 +5,7 @@ import {Typography} from "@mui/material";
 import {UncompletedSentence} from "../domine/UncompletedSentence";
 import {dataSentencesToComplete} from "../dataSource/dataSentencesToComplete";
 import {SentenceToCompleteForm} from "../components/SentenceToCompleteForm";
+import {SentenceToCompleteResult} from "../components/SentenceToCompleteResults";
 
 interface QuestionAnswered extends UncompletedSentence {
     correct: boolean
@@ -14,23 +15,7 @@ export default function Home() {
     const [testResults, setTestResults] = useState<QuestionAnswered[]>([])
 
     if (testResults.length > 0) {
-        return (
-            <Grid2 container justifyContent={"center"} alignItems={"center"} sx={{height: "100vh"}}>
-                <Grid2 container direction={"column"} spacing={2}>
-                    <Typography>
-                        Resultados
-                    </Typography>
-                    {
-                        testResults.map((result) => {
-                            return (
-                                <Typography>
-                                    Correct: {result.correct + ""} - {result.text}
-                                </Typography>
-                            )
-                        })
-                    }
-                </Grid2>
-            </Grid2>)
+        return (<SentenceToCompleteResult answers={testResults}/>)
     }
 
     return (

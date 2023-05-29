@@ -6,7 +6,7 @@ import {useMemo} from "react";
 import {countInputsQuestions} from "../utils";
 import {UncompletedSentence} from "../domine/UncompletedSentence";
 
-interface QuestionAnswered extends UncompletedSentence {
+export interface QuestionAnswered extends UncompletedSentence {
     correct: boolean
 }
 
