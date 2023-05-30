@@ -20,7 +20,7 @@ export const SentenceToCompleteForm = ({sentences, onSubmit}: SentenceToComplete
     const initialValues = useMemo(() => {
         let defaultInputValues = {}
         sentences.forEach((question, indexQuestion) => {
-            const count = countInputsQuestions(question.text)
+            const count = countInputsQuestions(question.sentence)
             defaultInputValues[`question-${indexQuestion}`] = Array.apply(null, Array(count)).map(() => "")
 
         })
@@ -36,7 +36,7 @@ export const SentenceToCompleteForm = ({sentences, onSubmit}: SentenceToComplete
                 const valuesAsArray = Object.values(values);
 
                 const evaluated: QuestionAnswered[] = valuesAsArray.map((answers, index) => {
-                    const rebuiltAnswer = sentences[index].text.replace("**", answers.join(" "))
+                    const rebuiltAnswer = sentences[index].sentence.replace("**", answers.join(" "))
                     return {
                         ...sentences[index],
                         correct: sentences[index].answers.find((answer) => answer === rebuiltAnswer)?.length > 0

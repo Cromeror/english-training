@@ -1,5 +1,5 @@
 export interface UncompletedSentence {
-    text: string;
+    sentence: string;
     tips?: string[];
     answers: Array<string>;
 }

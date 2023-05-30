@@ -28,7 +28,7 @@ export const SentenceToCompleteResult = ({answers}: SentenceToCompleteResultProp
                                         px: 2,
                                     }
                                 }>
-                                    {result.text}
+                                    {result.sentence}
                                 </Typography>
                             </Grid2>
                         )

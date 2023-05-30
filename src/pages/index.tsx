@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useState} from 'react';
-import Grid2 from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Unstable_Grid2';
 import {Typography} from "@mui/material";
 import {UncompletedSentence} from "../domine/UncompletedSentence";
 import {dataSentencesToComplete} from "../dataSource/dataSentencesToComplete";
@@ -19,17 +19,21 @@ export default function Home() {
     }
 
     return (
-        <Grid2 container justifyContent={"center"} alignItems={"center"} sx={{height: "100vh"}}>
-            <Grid2 container direction={"column"} spacing={4}>
-                <Grid2>
+        <Grid container justifyContent={"center"} alignItems={"center"} sx={{height: "100vh"}}>
+            <Grid container direction={"column"} spacing={4}>
+                <Grid>
                     <Typography>
+                        Perfect Past:
                         Completa las frases con la forma correcta del verbo que se encuentra entre paréntesis.
                     </Typography>
-                </Grid2>
+                </Grid>
 
-                <SentenceToCompleteForm sentences={dataSentencesToComplete}
-                                        onSubmit={results => setTestResults(results)}/>
-            </Grid2>
-        </Grid2>
+                <Grid>
+                    <SentenceToCompleteForm sentences={dataSentencesToComplete}
+                                            onSubmit={results => setTestResults(results)}/>
+                </Grid>
+
+            </Grid>
+        </Grid>
     );
 }
