@@ -15,7 +15,7 @@ export default function Home() {
     const [testResults, setTestResults] = useState<QuestionAnswered[]>([])
 
     if (testResults.length > 0) {
-        return (<SentenceToCompleteResult answers={testResults}/>)
+        return (<SentenceToCompleteResult results={testResults}/>)
     }
 
     return (

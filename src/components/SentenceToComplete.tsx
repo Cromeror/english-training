@@ -60,7 +60,7 @@ export const SentenceToComplete = ({question, id}: SentenceToCompleteProps) => {
                                 <Typography>{part}</Typography>
                                 <Field name={`${id}[${index}]`}>
                                     {({field}) => (
-                                        <Input {...field} type="text"/>
+                                        <Input {...field} type="text" autoComplete="off"/>
                                     )}
                                 </Field>
                             </Fragment>
@@ -70,8 +70,8 @@ export const SentenceToComplete = ({question, id}: SentenceToCompleteProps) => {
             <Grid container sx={sxTipStyles}>
                 {question.tips && question.tips.length > 0 && <Typography>Tips: </Typography>}
                 {
-                    question.tips?.map(tip => (
-                        <Typography>{tip}</Typography>
+                    question.tips?.map((tip, index) => (
+                        <Typography key={index}>{tip}</Typography>
                     ))
                 }
             </Grid>

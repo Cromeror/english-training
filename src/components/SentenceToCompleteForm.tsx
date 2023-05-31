@@ -6,17 +6,17 @@ import {useMemo} from "react";
 import {countInputsQuestions} from "../utils";
 import {UncompletedSentence} from "../domine/UncompletedSentence";
 
-export interface QuestionAnswered extends UncompletedSentence {
-    correct: boolean
+export interface SentenceToCompleteResult extends UncompletedSentence {
+    userAnswers: string[];
+    isCorrect: boolean;
 }
 
 interface SentenceToCompleteFormProps {
     sentences: UncompletedSentence[];
-    onSubmit: (results: QuestionAnswered[]) => void;
+    onSubmit: (results: SentenceToCompleteResult[]) => void;
 }
 
 export const SentenceToCompleteForm = ({sentences, onSubmit}: SentenceToCompleteFormProps) => {
-
     const initialValues = useMemo(() => {
         let defaultInputValues = {}
         sentences.forEach((question, indexQuestion) => {
@@ -27,19 +27,19 @@ export const SentenceToCompleteForm = ({sentences, onSubmit}: SentenceToComplete
         return defaultInputValues
     }, [])
 
-
     return (
         <Formik
             initialValues={initialValues}
             onSubmit={(values) => {
-
                 const valuesAsArray = Object.values(values);
+                const evaluated: SentenceToCompleteResult[] = valuesAsArray.map((userAnswers, index) => {
+                    const {answers} = sentences[index] as UncompletedSentence
+                    const matchAnswer = userAnswers.filter((userAnswer, index) => (answers[`{${index}}`].find((option) => option === userAnswer)))
 
-                const evaluated: QuestionAnswered[] = valuesAsArray.map((answers, index) => {
-                    const rebuiltAnswer = sentences[index].sentence.replace("**", answers.join(" "))
                     return {
                         ...sentences[index],
-                        correct: sentences[index].answers.find((answer) => answer === rebuiltAnswer)?.length > 0
+                        userAnswers,
+                        isCorrect: matchAnswer.length > 0
                     }
                 })
 

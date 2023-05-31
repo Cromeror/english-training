@@ -1,13 +1,14 @@
 import {Typography} from "@mui/material";
 import * as React from "react";
-import {QuestionAnswered} from "./SentenceToCompleteForm";
+import {SentenceToCompleteResult} from "./SentenceToCompleteForm";
 import Grid2 from "@mui/material/Unstable_Grid2";
+import {AnswerFromArray} from "./AnswerFromArray";
 
 interface SentenceToCompleteResultProps {
-    answers: QuestionAnswered[]
+    results: SentenceToCompleteResult[]
 }
 
-export const SentenceToCompleteResult = ({answers}: SentenceToCompleteResultProps) => {
+export const SentenceToCompleteResult = ({results}: SentenceToCompleteResultProps) => {
     return (
         <Grid2 container justifyContent={"center"} alignItems={"center"} sx={{height: "100vh"}}>
             <Grid2 container direction={"column"} spacing={1}>
@@ -15,24 +16,22 @@ export const SentenceToCompleteResult = ({answers}: SentenceToCompleteResultProp
                     Resultados
                 </Typography>
                 {
-                    answers.map((result, index) => {
-
-                        return (
-                            <Grid2>
-                                <Typography key={index} sx={
-                                    {
-                                        border: "2px solid",
-                                        borderColor: result.correct ? "green" : "red",
-                                        borderRadius: 2,
-                                        py: 1,
-                                        px: 2,
-                                    }
-                                }>
-                                    {result.sentence}
-                                </Typography>
-                            </Grid2>
-                        )
-                    })
+                    results.map((result, index) => (
+                        <Grid2 key={index}>
+                            <Typography sx={
+                                {
+                                    border: "2px solid",
+                                    borderColor: result.isCorrect ? "green" : "red",
+                                    borderRadius: 2,
+                                    py: 1,
+                                    px: 2,
+                                }
+                            }>
+                                <AnswerFromArray sentence={result.sentence} answers={result.userAnswers}
+                                                 highlight={true}/>
+                            </Typography>
+                        </Grid2>
+                    ))
                 }
             </Grid2>
         </Grid2>)
