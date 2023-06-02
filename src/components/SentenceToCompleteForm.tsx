@@ -39,7 +39,7 @@ export const SentenceToCompleteForm = ({sentences, onSubmit}: SentenceToComplete
                     return {
                         ...sentences[index],
                         userAnswers,
-                        isCorrect: matchAnswer.length > 0
+                        isCorrect: matchAnswer.length === userAnswers.length
                     }
                 })
 

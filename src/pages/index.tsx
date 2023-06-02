@@ -2,20 +2,15 @@ import * as React from 'react';
 import {useState} from 'react';
 import Grid from '@mui/material/Unstable_Grid2';
 import {Typography} from "@mui/material";
-import {UncompletedSentence} from "../domine/UncompletedSentence";
 import {dataSentencesToComplete} from "../dataSource/dataSentencesToComplete";
-import {SentenceToCompleteForm} from "../components/SentenceToCompleteForm";
-import {SentenceToCompleteResult} from "../components/SentenceToCompleteResults";
-
-interface QuestionAnswered extends UncompletedSentence {
-    correct: boolean
-}
+import {SentenceToCompleteForm, SentenceToCompleteResult} from "../components/SentenceToCompleteForm";
+import {ListSentenceToCompleteResult} from "../components/SentenceToCompleteResults";
 
 export default function Home() {
-    const [testResults, setTestResults] = useState<QuestionAnswered[]>([])
+    const [testResults, setTestResults] = useState<SentenceToCompleteResult[]>([])
 
     if (testResults.length > 0) {
-        return (<SentenceToCompleteResult results={testResults}/>)
+        return (<ListSentenceToCompleteResult results={testResults}/>)
     }
 
     return (

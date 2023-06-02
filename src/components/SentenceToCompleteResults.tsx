@@ -8,7 +8,7 @@ interface SentenceToCompleteResultProps {
     results: SentenceToCompleteResult[]
 }
 
-export const SentenceToCompleteResult = ({results}: SentenceToCompleteResultProps) => {
+export const ListSentenceToCompleteResult = ({results}: SentenceToCompleteResultProps) => {
     return (
         <Grid2 container justifyContent={"center"} alignItems={"center"} sx={{height: "100vh"}}>
             <Grid2 container direction={"column"} spacing={1}>
