@@ -6,8 +6,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import {CacheProvider, EmotionCache} from '@emotion/react';
 import theme from '../theme';
 import createEmotionCache from '../createEmotionCache';
-import {AppBar, Box, Toolbar, Typography} from "@mui/material";
-import Link from "next/link";
+import {AppBar} from "../components/AppBar";
+import {Box} from "@mui/material";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -24,13 +24,7 @@ export default function MyApp(props: MyAppProps) {
             </Head>
             <ThemeProvider theme={theme}>
                 <CssBaseline/>
-                <AppBar position="fixed">
-                    <Toolbar>
-                        <Typography variant="h6">
-                            <Link href="/">Go to home</Link>
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
+                <AppBar/>
                 <Box sx={{marginTop: "64px"}}>
                     <Component {...pageProps} />|
                 </Box>
