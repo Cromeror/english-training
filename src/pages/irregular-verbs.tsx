@@ -5,7 +5,7 @@ import {SentenceToCompleteForm} from "../components/SentenceToCompleteForm";
 import {ListSentenceToCompleteResult} from "../components/SentenceToCompleteResults";
 import {dataIrregularSentencesToComplete} from "../dataSource/dataIrregularVerbsToComplete";
 
-export default function Dashboard() {
+export default function IrregularVerbs() {
     const [testResults, setTestResults] = useState<ListSentenceToCompleteResult[]>([])
     const [started, setStarted] = useState(false)
     const dataSet = useRef([])
