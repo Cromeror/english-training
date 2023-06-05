@@ -12,7 +12,7 @@ export const AppBar = () => {
             }
             }>
                 <Typography variant="h6">
-                    <Link href="/">Go to home</Link>
+                    <Link href="/">HOME</Link>
                 </Typography>
                 <IconButton>
                     <Link href="settings">

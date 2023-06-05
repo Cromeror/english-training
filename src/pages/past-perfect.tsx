@@ -4,7 +4,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import {Typography} from "@mui/material";
 import {dataSentencesToComplete} from "../dataSource/dataSentencesToComplete";
 import {SentenceToCompleteForm, SentenceToCompleteResult} from "../components/SentenceToCompleteForm";
-import {ListSentenceToCompleteResult} from "../components/SentenceToCompleteResults";
+import {ListSentenceToCompleteResult} from "../components/ListSentenceToCompleteResults";
 
 export default function PastPerfect() {
     const [testResults, setTestResults] = useState<SentenceToCompleteResult[]>([])

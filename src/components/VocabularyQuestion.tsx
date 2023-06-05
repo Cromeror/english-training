@@ -1,20 +1,15 @@
+import {Question} from "../domine/Question";
 import Grid from "@mui/material/Unstable_Grid2";
-import {Input, Typography} from "@mui/material";
+import {TextField, Typography} from "@mui/material";
 import * as React from "react";
-import {Fragment} from "react";
 import {Field} from "formik";
-import {splitQuestionByEmptyWords} from "../utils";
-import {UncompletedSentence} from "../domine/UncompletedSentence";
 
-interface SentenceToCompleteProps {
-    question: UncompletedSentence,
+interface VocabularyQuestionProps {
+    question: Question,
     id: string | number
 }
 
-export const SentenceToComplete = ({question, id}: SentenceToCompleteProps) => {
-
-    const questionSplit = splitQuestionByEmptyWords(question.sentence)
-
+export const VocabularyQuestion = ({question, id}: VocabularyQuestionProps) => {
     const sxStyle = {
         border: "1px solid gray",
         borderRadius: 2,
@@ -29,7 +24,6 @@ export const SentenceToComplete = ({question, id}: SentenceToCompleteProps) => {
             }
         }
     }
-
     const sxTipStyles = {
         marginTop: 1,
         "& p": {
@@ -52,20 +46,11 @@ export const SentenceToComplete = ({question, id}: SentenceToCompleteProps) => {
     return (
         <Grid container flexDirection="column" sx={sxStyle}>
             <Grid container alignItems={"center"} sx={sxQuestionStyle}>
-                {
-                    questionSplit.map((part, index) => (
-                        index === questionSplit.length - 1 ?
-                            <Typography key={`${id}-${index}`}>{part}</Typography>
-                            : <Fragment key={`${id}-${index}`}>
-                                <Typography>{part}</Typography>
-                                <Field name={`${id}[${index}]`}>
-                                    {({field}) => (
-                                        <Input {...field} type="text" autoComplete="off"/>
-                                    )}
-                                </Field>
-                            </Fragment>
-                    ))
-                }
+                <Typography key={id} dangerouslySetInnerHTML={{__html: question.text}}/>
+                <Field name={id}>
+                    {({field}) => <TextField size={"small"} variant="outlined"  {...field} type="text"
+                                             autoComplete="off"/>}
+                </Field>
             </Grid>
             <Grid container sx={sxTipStyles}>
                 {question.clues && question.clues.length > 0 && <Typography>Tips: </Typography>}

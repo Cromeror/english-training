@@ -13,7 +13,7 @@ export const roboto = Roboto({
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#556cd6',
+            main: '#088008',
         },
         secondary: {
             main: '#19857b',
@@ -33,6 +33,16 @@ const theme = createTheme({
                     borderRadius: 2,
                     backgroundColor: '#202020',
                 }
+            }
+        },
+        MuiButton: {
+            styleOverrides: {
+                root: ({ownerState}) => (
+                    {
+                        borderRadius: 100,
+                        ...(ownerState.color === 'primary' && {})
+                    }
+                )
             }
         }
     }

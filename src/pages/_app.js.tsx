@@ -7,7 +7,8 @@ import {CacheProvider, EmotionCache} from '@emotion/react';
 import theme from '../theme';
 import createEmotionCache from '../createEmotionCache';
 import {AppBar} from "../components/AppBar";
-import {Box} from "@mui/material";
+import {Topics} from "../components/Topics";
+import Grid2 from "@mui/material/Unstable_Grid2";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -25,9 +26,12 @@ export default function MyApp(props: MyAppProps) {
             <ThemeProvider theme={theme}>
                 <CssBaseline/>
                 <AppBar/>
-                <Box sx={{marginTop: "64px"}}>
-                    <Component {...pageProps} />|
-                </Box>
+                <Grid2 container sx={{marginTop: "64px", minHeight: "calc(100vh - 65px)"}}>
+                    <Topics/>
+                    <Grid2 xs={10}>
+                        <Component {...pageProps} />
+                    </Grid2>
+                </Grid2>
             </ThemeProvider>
         </CacheProvider>
     );
