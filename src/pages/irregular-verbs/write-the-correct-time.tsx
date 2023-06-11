@@ -38,18 +38,19 @@ export default () => {
 
     if (testResults.length > 0) {
         return (
-            <Grid2 container spacing={4} sx={{
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100%"
-            }}>
-                {testResults.map((result, index) => (
-                    <Grid2 key={index}>
-                        <VocabularyResultItem result={result}/>
-                    </Grid2>
-                ))
-                }
-            </Grid2>
+            <Box container sx={{alignItems: "center", height: "100%", display: "flex"}}>
+                <Grid2 container spacing={4} sx={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}>
+                    {testResults.map((result, index) => (
+                        <Grid2 key={index} mdOffset={0}>
+                            <VocabularyResultItem result={result}/>
+                        </Grid2>
+                    ))
+                    }
+                </Grid2>
+            </Box>
         )
     }
 

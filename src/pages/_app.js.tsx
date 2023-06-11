@@ -26,7 +26,10 @@ export default function MyApp(props: MyAppProps) {
             <ThemeProvider theme={theme}>
                 <CssBaseline/>
                 <AppBar/>
-                <Grid2 container sx={{marginTop: "64px", minHeight: "calc(100vh - 65px)"}}>
+                <Grid2 container sx={{
+                    marginTop: "64px", minHeight: "calc(100vh - 65px)",
+                    backgroundColor: "#f4f6f4"
+                }}>
                     <Topics/>
                     <Grid2 xs={10}>
                         <Component {...pageProps} />

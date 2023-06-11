@@ -29,9 +29,10 @@ const theme = createTheme({
         MuiCard: {
             styleOverrides: {
                 root: {
-                    width: "100%",
-                    borderRadius: 2,
-                    backgroundColor: '#202020',
+                    backgroundColor: "#ffffff",
+                    borderRadius: "12px",
+                    padding: 2,
+                    width: "100%"
                 }
             }
         },

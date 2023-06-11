@@ -259,7 +259,7 @@ export const dataIrregularSentencesToComplete: UncompletedSentence[] = [
     },
     {
         sentence: "Past simple: {0} Past participle {1}",
-        clues: ["fell"],
+        clues: ["feel"],
         answers: {
             "{0}": ["felt"],
             "{1}": ["felt"]
@@ -1205,9 +1205,9 @@ export const dataSourceIrregularVerbs = [
         "correctAnswer": "fed"
     },
     {
-        "text": "Past participle of <b>fell</b>",
+        "text": "Past participle of <b>feel</b>",
         "clues": [
-            "fell"
+            "feel"
         ],
         "correctAnswer": "felt"
     },
@@ -2059,9 +2059,9 @@ export const dataSourceIrregularVerbs = [
         "correctAnswer": "fed"
     },
     {
-        "text": "Past simple of <b>fell</b>",
+        "text": "Past simple of <b>feel</b>",
         "clues": [
-            "fell"
+            "feel"
         ],
         "correctAnswer": "felt"
     },
